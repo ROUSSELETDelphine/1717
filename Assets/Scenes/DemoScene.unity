@@ -2656,7 +2656,6 @@ MonoBehaviour:
   isTurningLeft: 0
   aimPistol: 0
   speedH: 2
-  speedV: 2
 --- !u!136 &1262328470
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3937,10 +3936,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a927c67d3bb37b84081101a1bd9d376d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCharacter: {fileID: 0}
   views:
   - {fileID: 1998471427}
   - {fileID: 2030592870}
   transitionSpeed: 5
+  speedV: 2
+  speedH: 2
 --- !u!1 &1783517720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4256,7 +4258,7 @@ MonoBehaviour:
   crosshairTexture: {fileID: 0}
   crosshairLength: 10
   crosshairWidth: 4
-  startingCrosshairSize: 10
+  startingCrosshairSize: 5
   fireSound: {fileID: 0}
   reloadSound: {fileID: 0}
   dryFireSound: {fileID: 0}
@@ -4728,7 +4730,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998471426}
   m_LocalRotation: {x: 0.11022721, y: 0.09026584, z: 0.010052895, w: 0.989748}
-  m_LocalPosition: {x: -0.19999988, y: 1.6439998, z: -0.8999997}
+  m_LocalPosition: {x: -0.016, y: 1.6439998, z: -1.032}
   m_LocalScale: {x: 1.5624994, y: 1.5624993, z: 1.5624999}
   m_Children: []
   m_Father: {fileID: 1262328468}
