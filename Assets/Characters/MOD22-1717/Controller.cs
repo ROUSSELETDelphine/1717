@@ -14,11 +14,9 @@ public class Controller : MonoBehaviour {
     public bool isTurningLeft;
     public bool aimPistol;
 
-    // Mouse mouvements
+    // Mouse movements
     public float speedH = 2.0f;
-    public float speedV = 2.0f;
     private float yaw = 0.0f;
-    private float pitch = 0.0f;
 
     // Use this for initialization
     void Start()
@@ -38,10 +36,9 @@ public class Controller : MonoBehaviour {
     {
         // Rotation with mouse
         yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        transform.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
 
-        
+        // Moving movements
         float translation = Input.GetAxis("Vertical") * 2;
         float rotation = Input.GetAxis("Horizontal") * 2;
         if (rotation > 0)
