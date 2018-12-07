@@ -176,42 +176,42 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed0_diffuse
-    second: {fileID: 2800000, guid: a9f1a073e1449c14cbfe42db989811c9, type: 3}
+    second: {fileID: 2800000, guid: 61acf25787b6d44409f7ac659fcc17b4, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed0_gloss
-    second: {fileID: 2800000, guid: 0c40c6e30126a0048bbe8f72283a696b, type: 3}
+    second: {fileID: 2800000, guid: f91e1c9c033d6c1478b1a6919e511278, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed0_normal
-    second: {fileID: 2800000, guid: eb2615dca85d28b428677aa60a8159cf, type: 3}
+    second: {fileID: 2800000, guid: ee153b707407e0549aa0de058bf46d62, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed0_specular
-    second: {fileID: 2800000, guid: 041ca7c802ce43340b925ebdcb130fcf, type: 3}
+    second: {fileID: 2800000, guid: 4c27c7c30c768a7468e551f298c75093, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed1_diffuse
-    second: {fileID: 2800000, guid: 431a6289c1f8d8349af9ab612ce06a50, type: 3}
+    second: {fileID: 2800000, guid: 4a31cc9f65a20f5438b227066cbe3f3d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed1_gloss
-    second: {fileID: 2800000, guid: ba43b39f68bd15d488ee2004fcb6ed40, type: 3}
+    second: {fileID: 2800000, guid: 64f06aeff8c79a14380f9eb3b5427cee, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed1_normal
-    second: {fileID: 2800000, guid: bc6aef40a102e4d4584ac858295ede1c, type: 3}
+    second: {fileID: 2800000, guid: 822a6c8622715d742ad92d0aaac8b564, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: MOD22-1717_packed1_specular
-    second: {fileID: 2800000, guid: 697a134c5d820a64b8cf7badef896acc, type: 3}
+    second: {fileID: 2800000, guid: b69a58c8ce645c9459d646b6abcc1a16, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
