@@ -36,6 +36,11 @@ public class Health : MonoBehaviour
 
 	public void ChangeHealth(float amount)
 	{
+
+        print("current health :\n");
+        print(currentHealth);
+        print("amount:");
+        print(amount);
 		// Change the health by the amount specified in the amount variable
 		currentHealth += amount;
 
