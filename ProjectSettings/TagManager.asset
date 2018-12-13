@@ -18,6 +18,12 @@ TagManager:
   - EventSystem
   - EquipmentSystem
   - MainInventory
+  - Concrete
+  - BHException
+  - Wood
+  - Enemy
+  - Team2
+  - Ground
   layers:
   - Default
   - TransparentFX
