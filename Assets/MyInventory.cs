@@ -25,12 +25,13 @@ public class MyInventory : MonoBehaviour
             print("c pressed");
             // Use Pills
             health.changeMentalState(-20);
+            pills--;
         }
         if (Input.GetKeyDown(KeyCode.V) && syringes > 0)
         {
             // Use Syringe
             health.changeMentalState(20);
-
+            syringes--;
         }
     }
 
