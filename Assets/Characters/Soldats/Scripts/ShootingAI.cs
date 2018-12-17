@@ -26,8 +26,10 @@ public class ShootingAI : MonoBehaviour {
 
         if (Physics.Raycast(ray, out hit))
         {
-
-            if (hit.collider.gameObject.name.Contains("Cube") == false)
+            print(hit.collider.gameObject.name);
+            // Gerer plus tard l'angle de vue des soldats   
+            LookAtPlayer();
+            if (hit.collider.gameObject.name.Contains("Cube") == false && hit.collider.gameObject.name.Contains("Wall") == false)
             {
                 if (distanceToPlayer < maxRange && distanceToPlayer > minRange)
                 {
@@ -42,9 +44,11 @@ public class ShootingAI : MonoBehaviour {
                 {
                     LookAtPlayer();
                     Attack();
+                    /*
                     Chase();
                     soldat.SendMessageUpwards("SetBooleanTrue", "isMovingForward", SendMessageOptions.DontRequireReceiver);
                     soldat.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
+                    */
                 }
             }
 
