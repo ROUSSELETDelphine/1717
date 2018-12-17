@@ -52,8 +52,8 @@ public class Controller : MonoBehaviour {
         float translation = Input.GetAxis("Vertical") * 2;
         float translationLR = Input.GetAxis("Horizontal") * 2;
 
-        translation *= Time.deltaTime;
-        translationLR *= Time.deltaTime;
+        translation *= Time.deltaTime*speed;
+        translationLR *= Time.deltaTime*speed;
         transform.Translate(0, 0, translation);
         transform.Translate(translationLR, 0, 0);
         

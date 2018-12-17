@@ -24,6 +24,8 @@ TagManager:
   - Enemy
   - Team2
   - Ground
+  - Syringe
+  - PickUpText
   layers:
   - Default
   - TransparentFX
