@@ -13,8 +13,8 @@ public class MyInventory : MonoBehaviour
     void Start()
     {
         health = gameObject.GetComponent<MentalHealthManager>();
-        syringes = 0;
-        pills = 0;
+        //syringes = 0;
+        //pills = 0;
         haveCard = false;
     }
 
@@ -22,7 +22,6 @@ public class MyInventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && pills > 0)
         {
-            print("c pressed");
             // Use Pills
             health.changeMentalState(-20);
             pills--;
