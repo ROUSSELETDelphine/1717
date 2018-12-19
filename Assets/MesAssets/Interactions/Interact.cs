@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
+    public GameObject Pivot, Porte;
+    public int Angle = 130;
+    private int CurAngle;
+    public bool Ouverture = false;
+    private bool keyE = false;
     public GameObject interaction_text;
     
     // Use this for initialization
@@ -18,7 +23,7 @@ public class Interact : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Team2"))
+        if (other.gameObject.tag.Equals("Team2") && !Ouverture)
         {
             if (interaction_text != null)
             {
@@ -33,7 +38,20 @@ public class Interact : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //Lancement de l'animation
+                keyE = true;
+                interaction_text.SetActive(false);
+            }
+        }
+
+        if (keyE)
+        {
+            if (CurAngle < Angle)
+            {
+                CurAngle += 1;
+                Porte.transform.RotateAround(Pivot.transform.position, -Vector3.up, CurAngle * Time.deltaTime);
+            } else
+            {
+                Ouverture = true;
             }
         }
     }
