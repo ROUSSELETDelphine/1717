@@ -28,6 +28,8 @@ TagManager:
   - BookShelves
   - lockedDoor
   - Door
+  - Syringe
+  - PickUpText
   layers:
   - Default
   - TransparentFX
