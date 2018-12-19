@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 0
+    path: Assets/Scenes/Melanie_lab.unity
+    guid: f08e11b76b4987d48adf3474217aec30
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 9d0bfa1aea3919241ab3e1071a064fe1
   - enabled: 1
-    path: Assets/Scenes/Melanie_lab.unity
-    guid: f08e11b76b4987d48adf3474217aec30
+    path: Assets/Scenes/Game.unity
+    guid: 1aa630261cd918644a03985b8074af14
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: b50652ce038a8cc4292842fa7fb5b914

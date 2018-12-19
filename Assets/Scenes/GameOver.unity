@@ -214,6 +214,20 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1734662159161576, guid: 6f5bef946561f154cba6d1effaa8a122, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114011631259878524, guid: 6f5bef946561f154cba6d1effaa8a122,
+        type: 2}
+      propertyPath: m_Text
+      value: emotions overwhelming you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114102097483253612, guid: 6f5bef946561f154cba6d1effaa8a122,
+        type: 2}
+      propertyPath: m_Text
+      value: 'You wake up because of the strong '
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f5bef946561f154cba6d1effaa8a122, type: 2}
   m_IsPrefabAsset: 0
