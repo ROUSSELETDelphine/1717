@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MentalHealthManager : MonoBehaviour {
 
     private Controller controller;               // Player controller script
-    private GlitchHandler glitchHandler;
+    private GlitchHandler glitchHandler;        // Script that makes appear glitch on screen
     public int startingMentalHealth = 0;        // Mental health at the beginning of the level
     public int currentMentalState;             // Current mental health state
     private bool isDead = false;                // Indicates whether the player is dead or not
@@ -82,5 +83,6 @@ public class MentalHealthManager : MonoBehaviour {
     void gameOver()
     {
         print("You woke up because of the strong emotions starting to overwhelm you.");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
