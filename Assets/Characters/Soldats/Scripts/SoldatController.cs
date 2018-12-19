@@ -56,7 +56,7 @@ public class SoldatController : MonoBehaviour {
         {
             anim.SetBool("isMovingForward", false);
         }
-        /*
+        
         if (isMovingBackward == true)
         {
             anim.SetBool("isMovingBackward", true);
@@ -92,7 +92,7 @@ public class SoldatController : MonoBehaviour {
             anim.SetBool("isHurt", true);
             leftShoulder.SendMessageUpwards("SetBooleanTrue", "isDying", SendMessageOptions.DontRequireReceiver);
         }
-        */
+        
     }
 
     void SetBooleanTrue(string boolean)
