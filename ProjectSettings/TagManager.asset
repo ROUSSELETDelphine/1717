@@ -24,6 +24,10 @@ TagManager:
   - Enemy
   - Team2
   - Ground
+  - Wall
+  - BookShelves
+  - lockedDoor
+  - Door
   layers:
   - Default
   - TransparentFX
