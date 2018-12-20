@@ -15,7 +15,7 @@ public class ShootingAI : MonoBehaviour {
     public LayerMask detectionLayer;
 
     private float distanceToPlayer;
-    private float detectionRadius = 5; 
+    public float detectionRadius = 5; 
     private float maxRange = 10;
     private float minRange = 3;
     private float rotatingSpeed = 350;
