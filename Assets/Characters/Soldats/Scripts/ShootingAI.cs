@@ -15,7 +15,7 @@ public class ShootingAI : MonoBehaviour {
     public LayerMask detectionLayer;
 
     private float distanceToPlayer;
-    private float detectionRadius = 10; 
+    private float detectionRadius = 5; 
     private float maxRange = 10;
     private float minRange = 3;
     private float rotatingSpeed = 350;
@@ -62,6 +62,18 @@ public class ShootingAI : MonoBehaviour {
             // Things are detected in detection range
             if (hitColliders.Length > 0)
             {
+                // Check if there are walls between object detected and soldier
+                RaycastHit checkWallHit = new RaycastHit();
+                Ray checkWallRay = new Ray(transform.position, hitColliders[0].transform.TransformDirection(Vector3.forward));
+                if (Physics.Raycast(checkWallRay, out checkWallHit))
+                {
+                    if (checkWallHit.collider.gameObject.tag.Contains("Door") == false && checkWallHit.collider.gameObject.tag.Contains("Wall") == false)
+                    {
+
+                    }
+                }
+
+
                 // Player is detected, the soldier aims
                 soldier.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
 
