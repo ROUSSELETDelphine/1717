@@ -6,21 +6,21 @@ public class GlitchHandler : MonoBehaviour
 
     private Kino.AnalogGlitch analogGlitch;
     private Kino.DigitalGlitch digitalGlitch;
-    public float dgi_first;
-    public float slj_first;
-    public float vj_first;
-    public float hs_first;
-    public float cd_first;
-    public float dgi_worrying;
-    public float slj_worrying;
-    public float vj_worrying;
-    public float hs_worrying;
-    public float cd_worrying;
-    public float dgi_critical;
-    public float slj_critical;
-    public float vj_critical;
-    public float hs_critical;
-    public float cd_critical;
+    private float dgi_first = 0.006f;
+    private float slj_first = 0.11f;
+    private float vj_first = 0.01f;
+    private float hs_first = 0;
+    private float cd_first = 0;
+    private float dgi_worrying = 0.1f;
+    private float slj_worrying = 0.5f;
+    private float vj_worrying = 0.02f;
+    private float hs_worrying = 0.001f;
+    private float cd_worrying = 0.1f;
+    private float dgi_critical = 0.1f;
+    private float slj_critical = 0.5f;
+    private float vj_critical = 0.05f;
+    private float hs_critical = 0.001f;
+    private float cd_critical = 0.05f;
     
 
 
@@ -28,6 +28,7 @@ public class GlitchHandler : MonoBehaviour
     {
         analogGlitch = GetComponent<Kino.AnalogGlitch>();
         digitalGlitch = GetComponent<Kino.DigitalGlitch>();
+
     }
 
 

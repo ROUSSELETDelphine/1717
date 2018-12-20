@@ -1,0 +1,182 @@
+# 
+# Wavefront material file
+# Converted by the DEEP Exploration  Deep Exploration 5.7 5.7.0.4228 Release
+# Right Hemisphere, LTD
+# http://www.righthemisphere.com/
+# 
+
+newmtl wireframe_color_0x863B08
+Ka 0.117647 0.117647 0.117647
+Kd 0.52549 0.231373 0.0313726
+Ks 0.752941 0.752941 0.752941
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl wireframe_color_0x1AB194
+Ka 0.117647 0.117647 0.117647
+Kd 0.101961 0.694118 0.580392
+Ks 0.752941 0.752941 0.752941
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl wireframe_color_0x911CB1
+Ka 0.117647 0.117647 0.117647
+Kd 0.568627 0.109804 0.694118
+Ks 0.752941 0.752941 0.752941
+illum 2
+Ns 8
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _3___Default
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.172549 0.172549 0.172549
+illum 2
+Ns 1448.16
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _3___Default0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.172549 0.172549 0.172549
+illum 2
+Ns 1448.16
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _3___Default1
+Ka 0 0 0
+Kd 1 1 1
+Ks 0.172549 0.172549 0.172549
+illum 2
+Ns 1448.16
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _1___Default
+Ka 1 0.690196 0.588235
+Kd 1 0.690196 0.588235
+Ks 0.9 0.9 0.9
+illum 2
+Ns 27.8576
+map_Kd 
+map_bump Bump.png
+bump Bump.png
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _1___Default0
+Ka 1 0.690196 0.588235
+Kd 1 0.690196 0.588235
+Ks 0.9 0.9 0.9
+illum 2
+Ns 27.8576
+map_Kd 
+map_bump Bump1.png
+bump Bump1.png
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl Material__27
+Ka 1 0.690196 0.588235
+Kd 1 0.690196 0.588235
+Ks 0.9 0.9 0.9
+illum 2
+Ns 27.8576
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _1___Default1
+Ka 1 0.690196 0.588235
+Kd 1 0.690196 0.588235
+Ks 0.9 0.9 0.9
+illum 2
+Ns 27.8576
+map_Kd 
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 
+
+newmtl _2___Default
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+illum 2
+Ns 78.7932
+map_Kd texture1.png
+map_bump 
+bump 
+map_opacity 
+map_d 
+refl 
+map_kS 
+map_kA 
+map_Ns 

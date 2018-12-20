@@ -30,6 +30,8 @@ TagManager:
   - Door
   - Syringe
   - PickUpText
+  - DigicodeCamera
+  - switchCam
   layers:
   - Default
   - TransparentFX

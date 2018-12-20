@@ -21,7 +21,6 @@ public class MyInventory : MonoBehaviour
         health = gameObject.GetComponent<MentalHealthManager>();
         syringesUI = syringesObject.GetComponent<TextMeshProUGUI>();
         pillsUI = pillsObject.GetComponent<TextMeshProUGUI>();
-        haveCard = false;
         syringesUI.text = syringes.ToString();
         pillsUI.text = pills.ToString();
     }
