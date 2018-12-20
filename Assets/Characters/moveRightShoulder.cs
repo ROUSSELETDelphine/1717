@@ -36,8 +36,8 @@ public class moveRightShoulder : MonoBehaviour {
         {
             // Rotation with mouse
             yawY -= speedH * Input.GetAxis("Mouse Y");
-            print("yawY");
-            print(yawY);
+            //print("yawY");
+            //print(yawY);
 
             //The arm rotates according to the mouse inputs
             if (yawY > -15 && yawY < 15)
