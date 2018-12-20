@@ -33,25 +33,21 @@ public class SoldatController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rightForeArm.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
-        rightForeArm.SendMessageUpwards("SetBooleanFalse", "isMovingBackward", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isMovingBackward", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isMovingLeft", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isMovingRight", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isAiming", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isHurt", SendMessageOptions.DontRequireReceiver);
-        leftShoulder.SendMessageUpwards("SetBooleanFalse", "isDying", SendMessageOptions.DontRequireReceiver);
+        print("anim.bool is hurt : " + anim.GetBool("isHurt").ToString());
 
-        print("movingForward");
-        print(isMovingForward);
+        if (isAiming == true)
+        {
+            anim.SetBool("isAiming", true);
+            leftShoulder.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
+        }
+
         if (isMovingForward == true)
         {
-            print("JE BOUGE MA RACE");
             anim.SetBool("isMovingForward", true);
             rightForeArm.SendMessageUpwards("SetBooleanTrue", "isMovingForward", SendMessageOptions.DontRequireReceiver);
             leftShoulder.SendMessageUpwards("SetBooleanTrue", "isMovingForward", SendMessageOptions.DontRequireReceiver);
         }
+
         if (isMovingForward == false)
         {
             anim.SetBool("isMovingForward", false);
@@ -74,13 +70,7 @@ public class SoldatController : MonoBehaviour {
             anim.SetBool("isMovingRight", true);
             leftShoulder.SendMessageUpwards("SetBooleanTrue", "isMovingRight", SendMessageOptions.DontRequireReceiver);
         }
-
-        if (isAiming == true)
-        {
-            anim.SetBool("isAiming", true);
-            leftShoulder.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
-        }
-
+        
         if (isDying == true)
         {
             anim.SetBool("isDying", true);
@@ -93,6 +83,11 @@ public class SoldatController : MonoBehaviour {
             leftShoulder.SendMessageUpwards("SetBooleanTrue", "isDying", SendMessageOptions.DontRequireReceiver);
         }
         
+    }
+
+    void LateUpdate()
+    {
+        isHurt = false;
     }
 
     void SetBooleanTrue(string boolean)

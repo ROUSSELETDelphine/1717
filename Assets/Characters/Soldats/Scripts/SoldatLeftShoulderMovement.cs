@@ -12,8 +12,10 @@ public class SoldatLeftShoulderMovement : MonoBehaviour {
     public bool isHurt;
     public bool isDying;
 
-	// Use this for initialization
-	void Start () {
+    private Quaternion lastRotation;
+
+    // Use this for initialization
+    void Start () {
         isMovingForward = false;
         isMovingBackward = false;
         isMovingLeft = false;
@@ -21,7 +23,9 @@ public class SoldatLeftShoulderMovement : MonoBehaviour {
         isAiming = false;
         isHurt = false;
         isDying = false;
-	}
+
+        lastRotation = transform.rotation;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,13 +34,37 @@ public class SoldatLeftShoulderMovement : MonoBehaviour {
 
     void LateUpdate()
     {
+        /*
+        if (!isMovingForward && !isMovingBackward && !isMovingLeft && !isMovingRight && !isAiming && !isHurt && !isDying)
+        {
+            transform.rotation.Set(lastRotation.x, lastRotation.y, lastRotation.z, 1);
+        }
+        else
+        {
+            lastRotation = transform.rotation;
+        }
+        */
+
         if (isMovingForward == true) transform.Rotate(0, -1, 5);
+        else transform.Rotate(0, 1, -5);
+
         if (isMovingBackward == true) transform.Rotate(0, -1, 5);
+        else transform.Rotate(0, 1, -5);
+
         if (isMovingLeft == true) transform.Rotate(0, 5, 0);
+        else transform.Rotate(0, -5, 0);
+
         if (isMovingRight == true) transform.Rotate(0, 5, 0);
+        else transform.Rotate(0, -5, 0);
+
         if (isAiming == true) transform.Rotate(0, 5, 0);
+        else transform.Rotate(0, -5, 0);
+
         if (isHurt == true) transform.Rotate(0, -5, 0);
+        else transform.Rotate(0, 5, 0);
+
         if (isDying == true) transform.Rotate(0, 5, 0);
+        else transform.Rotate(0, -5, 0);
     }
 
     void SetBooleanTrue(string boolean)

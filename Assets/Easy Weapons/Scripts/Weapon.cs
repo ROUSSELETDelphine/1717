@@ -533,6 +533,32 @@ public class Weapon : MonoBehaviour
 		}
 		if (showCrosshair)
 		{
+            Vector3 direction = raycastStartSpot.forward;
+            Ray ray = new Ray(raycastStartSpot.position, direction);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit) && playerWeapon == true)
+            {
+                Vector3 worldToScreenConvert = Camera.main.WorldToScreenPoint(hit.point);
+            
+                Vector2 crossScreen = new Vector2(worldToScreenConvert.x, worldToScreenConvert.y);
+                
+
+                // Draw the crosshairs based on the weapon's inaccuracy
+                // Left
+                Rect leftRect = new Rect(crossScreen.x - crosshairLength - currentCrosshairSize, crossScreen.y - (crosshairWidth / 2), crosshairLength, crosshairWidth);
+                GUI.DrawTexture(leftRect, crosshairTexture, ScaleMode.StretchToFill);
+                // Right
+                Rect rightRect = new Rect(crossScreen.x + currentCrosshairSize, crossScreen.y - (crosshairWidth / 2), crosshairLength, crosshairWidth);
+                GUI.DrawTexture(rightRect, crosshairTexture, ScaleMode.StretchToFill);
+                // Top
+                Rect topRect = new Rect(crossScreen.x - (crosshairWidth / 2), crossScreen.y - crosshairLength - currentCrosshairSize, crosshairWidth, crosshairLength);
+                GUI.DrawTexture(topRect, crosshairTexture, ScaleMode.StretchToFill);
+                // Bottom
+                Rect bottomRect = new Rect(crossScreen.x - (crosshairWidth / 2), crossScreen.y + currentCrosshairSize, crosshairWidth, crosshairLength);
+                GUI.DrawTexture(bottomRect, crosshairTexture, ScaleMode.StretchToFill);
+            }
+
+            /*
 			// Hold the location of the center of the screen in a variable
 			Vector2 center = new Vector2(Screen.width / 2, Screen.height / 2);
 
@@ -549,7 +575,8 @@ public class Weapon : MonoBehaviour
 			// Bottom
 			Rect bottomRect = new Rect(center.x - (crosshairWidth / 2), center.y + currentCrosshairSize, crosshairWidth, crosshairLength);
 			GUI.DrawTexture(bottomRect, crosshairTexture, ScaleMode.StretchToFill);
-		}
+            */
+        }
 
 		// Ammo Display
 		if (showCurrentAmmo)
@@ -604,7 +631,7 @@ public class Weapon : MonoBehaviour
 			Ray ray = new Ray(raycastStartSpot.position, direction);
 			RaycastHit hit;
 
-			if (Physics.Raycast(ray, out hit, range))
+            if (Physics.Raycast(ray, out hit, range))
 			{
 				// Warmup heat
 				float damage = power;
@@ -616,8 +643,21 @@ public class Weapon : MonoBehaviour
 				
 				// Damage
 				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
-				
-				if (shooterAIEnabled)
+
+                // If an enemy is hurt
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    hit.collider.gameObject.SendMessageUpwards("SetBooleanTrue", "isHurt", SendMessageOptions.DontRequireReceiver);
+                }
+
+                // If player is hurt
+
+                if (hit.collider.gameObject.name == "MOD22-1717@Idle")
+                {
+                    //Envoyer un message a l'interface de vie de MOD22 ?
+                }
+
+                if (shooterAIEnabled)
 				{
 					hit.transform.SendMessageUpwards("Damage", damage / 100, SendMessageOptions.DontRequireReceiver);
 				}
@@ -638,8 +678,8 @@ public class Weapon : MonoBehaviour
 							character.ApplyDamage(damage, hit.collider.gameObject, weaponType, directionShot, Camera.main.transform.position);
 						}
 						*/
-					}
-				}
+    }
+}
 
 
 
