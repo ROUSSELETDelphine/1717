@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
+    public AudioSource source;
     public GameObject Pivot, Porte;
     public int Angle = 130;
     private int CurAngle;
@@ -38,6 +39,7 @@ public class Interact : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                source.PlayOneShot(source.clip);
                 keyE = true;
                 interaction_text.SetActive(false);
             }

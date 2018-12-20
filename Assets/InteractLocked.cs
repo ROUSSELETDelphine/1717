@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractLocked : MonoBehaviour
 {
+    public AudioSource source;
     public GameObject Pivot, Porte;
     public GameObject player;
     private MyInventory inventory;
@@ -35,6 +36,7 @@ public class InteractLocked : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && inventory.haveCard)
             {
+                source.PlayOneShot(source.clip);
                 keyE = true;
                 open_text.SetActive(false);
             }
