@@ -218,7 +218,7 @@ public class Weapon : MonoBehaviour
 	{
         headShotCoeff = 3;
         mentalHealth = GameObject.Find("MOD22-1717@Idle").GetComponent<MentalHealthManager>();
-        headshotEuphoria = 20;
+        headshotEuphoria = 10;
 
 
         // Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is

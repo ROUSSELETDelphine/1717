@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class levelScript : MonoBehaviour {
 
+    public AudioSource source;
     public GameObject finalDoor;
+    public GameObject elevatorDoor;
     public float finalDoorRadius = 5;
     private Collider[] hitColliders;
     public LayerMask detectionLayer;
@@ -25,8 +27,10 @@ public class levelScript : MonoBehaviour {
 
         if (nbInitialEnemies <= 0 && !bossHasSpawn)
         {
+            source.PlayOneShot(source.clip);   
             transform.Find("Boss").Find("Enemy spawn").SendMessage("SpawnObject", SendMessageOptions.DontRequireReceiver);
             bossHasSpawn = true;
+            elevatorDoor.SetActive(false);
         }
 
         // If all enemies are dead and player is close to the final door

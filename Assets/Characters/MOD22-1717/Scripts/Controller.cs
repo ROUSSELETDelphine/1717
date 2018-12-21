@@ -5,6 +5,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour {
 
     public bool weaponEquiped = false;
+    public GameObject weaponText;
 
     static Animator anim;
 
@@ -85,6 +86,7 @@ public class Controller : MonoBehaviour {
         
         if (Input.GetKeyDown(KeyCode.Alpha2) && weaponEquiped)
         {
+            weaponText.SetActive(false);
             aimPistol = true;
             anim.SetBool("isAimingPistol", true);
         }

@@ -6,21 +6,22 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour {
 
     public GameObject player;
-    public GameObject pickUpText;
+    public GameObject pickUpText, weaponText;
     private MyInventory inventory;
     public string type;
     private Controller playerController;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
         inventory = player.GetComponent<MyInventory>();
         playerController = player.GetComponent<Controller>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+
+    }
     
     void OnTriggerEnter(Collider other)
     {
@@ -52,9 +53,11 @@ public class PickUp : MonoBehaviour {
                 } else if (type.Equals("pistol"))
                 {
                     playerController.weaponEquiped = true;
+                    weaponText.SetActive(true);
                 }
             }
         }
+
     }
 
     void OnTriggerExit(Collider other)
@@ -62,6 +65,7 @@ public class PickUp : MonoBehaviour {
         print("Exit");
         if (other.gameObject.tag == "Team2")
         {
+            weaponText.SetActive(false);
             if (pickUpText != null)
                 pickUpText.SetActive(false);
         }
