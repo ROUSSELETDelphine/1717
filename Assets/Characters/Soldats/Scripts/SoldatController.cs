@@ -7,7 +7,7 @@ public class SoldatController : MonoBehaviour {
     public GameObject leftShoulder;
     public GameObject rightForeArm;
     public GameObject weapon;
-    static Animator anim;
+    private Animator anim;
 
     public bool isMovingForward;
     public bool isMovingBackward;

@@ -7,7 +7,6 @@ public class ShootingAI : MonoBehaviour {
 
     private GameObject player;
     public GameObject weapon;
-    public GameObject soldier;
     private NavMeshAgent myNavMeshAgent;
     private Collider[] hitColliders;
     private float checkRate;
@@ -62,6 +61,7 @@ public class ShootingAI : MonoBehaviour {
             // Things are detected in detection range
             if (hitColliders.Length > 0)
             {
+                /*
                 // Check if there are walls between object detected and soldier
                 RaycastHit checkWallHit = new RaycastHit();
                 Ray checkWallRay = new Ray(transform.position, hitColliders[0].transform.TransformDirection(Vector3.forward));
@@ -72,10 +72,11 @@ public class ShootingAI : MonoBehaviour {
 
                     }
                 }
+                */
 
 
                 // Player is detected, the soldier aims
-                soldier.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
+                gameObject.SendMessageUpwards("SetBooleanTrue", "isAiming", SendMessageOptions.DontRequireReceiver);
 
                 // Soldier rotates to look at the player then starts shooting
                 distanceToPlayer = Vector3.Distance(hitColliders[0].transform.position, transform.position);
@@ -88,20 +89,20 @@ public class ShootingAI : MonoBehaviour {
                     //hitColliders[0] is the player
                     //the agent stoppes moving at "stopping distance" public attribute
                     myNavMeshAgent.SetDestination(hitColliders[0].transform.position);
-                    soldier.SendMessageUpwards("SetBooleanTrue", "isMovingForward", SendMessageOptions.DontRequireReceiver);
+                    gameObject.SendMessageUpwards("SetBooleanTrue", "isMovingForward", SendMessageOptions.DontRequireReceiver);
                 }
                 else
                 {
                     // The soldier does not move 
-                    soldier.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
+                    gameObject.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
                 }
             }
             else
             {
                 // Nothing is detected, the soldier does not aim
-                soldier.SendMessageUpwards("SetBooleanFalse", "isAiming", SendMessageOptions.DontRequireReceiver);
+                gameObject.SendMessageUpwards("SetBooleanFalse", "isAiming", SendMessageOptions.DontRequireReceiver);
                 // The soldier does not move 
-                soldier.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
+                gameObject.SendMessageUpwards("SetBooleanFalse", "isMovingForward", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
