@@ -30,7 +30,6 @@ public class DigicodeInteract : MonoBehaviour {
 
         if (!isValid && Input.GetKeyDown(KeyCode.R) && !open && zoomIn)
         {
-            print("zoom out");
             quitText.SetActive(false);
             enterCodeText.SetActive(true);
             digicodeCam.SetActive(false);
@@ -57,7 +56,6 @@ public class DigicodeInteract : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E) && !open && !zoomIn)
             {
-                print("zoom in");
                 enterCodeText.SetActive(false);
                 quitText.SetActive(true);
                 player.SetActive(false);

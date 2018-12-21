@@ -51,8 +51,8 @@ public class Spawner : MonoBehaviour
 		// First check to see if the prefab hasn't been set
 		if (prefabToSpawn != null)
 		{
-			// Instantiate the prefab
-			Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
+            // Instantiate the prefab
+            Instantiate(prefabToSpawn, transform.position, Quaternion.identity, transform);
 		}
 	}
 }

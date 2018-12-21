@@ -9,10 +9,12 @@ public class PickUp : MonoBehaviour {
     public GameObject pickUpText;
     private MyInventory inventory;
     public string type;
+    private Controller playerController;
 
 	// Use this for initialization
 	void Start () {
         inventory = player.GetComponent<MyInventory>();
+        playerController = player.GetComponent<Controller>();
 	}
 	
 	// Update is called once per frame
@@ -47,6 +49,9 @@ public class PickUp : MonoBehaviour {
                 } else if (type.Equals("card"))
                 {
                     inventory.addCard();
+                } else if (type.Equals("pistol"))
+                {
+                    playerController.weaponEquiped = true;
                 }
             }
         }

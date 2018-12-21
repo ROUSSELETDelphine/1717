@@ -2732,10 +2732,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 1753986164417108}
-  soldier: {fileID: 1480397456038844}
   detectionLayer:
     serializedVersion: 2
     m_Bits: 512
+  detectionRadius: 5
 --- !u!114 &114760047182196542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2879,6 +2879,8 @@ MonoBehaviour:
   leftShoulder: {fileID: 1720070129890036}
   rightForeArm: {fileID: 1159766858875880}
   weapon: {fileID: 1753986164417108}
+  anim: {fileID: 0}
+  health: {fileID: 0}
   isMovingForward: 0
   isMovingBackward: 0
   isMovingLeft: 0
@@ -2899,14 +2901,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canDie: 1
-  startingHealth: 50
-  maxHealth: 30
+  startingHealth: 10
+  maxHealth: 10
   replaceWhenDead: 0
   deadReplacement: {fileID: 0}
   makeExplosion: 0
   explosion: {fileID: 0}
   isPlayer: 0
   deathCam: {fileID: 0}
+  dead: 0
+  coeff: 0
 --- !u!135 &135892530416880152
 SphereCollider:
   m_ObjectHideFlags: 1

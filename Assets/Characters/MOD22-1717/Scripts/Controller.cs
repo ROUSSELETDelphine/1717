@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour {
 
+    public bool weaponEquiped = false;
+
     static Animator anim;
 
     // Keyboard mouvements
@@ -81,7 +83,7 @@ public class Controller : MonoBehaviour {
         }
        
         
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && weaponEquiped)
         {
             aimPistol = true;
             anim.SetBool("isAimingPistol", true);

@@ -7,7 +7,8 @@ public class SoldatController : MonoBehaviour {
     public GameObject leftShoulder;
     public GameObject rightForeArm;
     public GameObject weapon;
-    private Animator anim;
+    public Animator anim;
+    public Health health;
 
     public bool isMovingForward;
     public bool isMovingBackward;
@@ -29,6 +30,8 @@ public class SoldatController : MonoBehaviour {
         anim.SetBool("isDying", false);
         anim.SetBool("isHurt", false);
         anim.SetBool("isHeadShot", false);
+
+        health = GetComponent<Health>();
     }
 	
 	// Update is called once per frame
@@ -74,6 +77,7 @@ public class SoldatController : MonoBehaviour {
         if (isDying == true)
         {
             anim.SetBool("isDying", true);
+            health.dead = true;
             leftShoulder.SendMessageUpwards("SetBooleanTrue", "isDying", SendMessageOptions.DontRequireReceiver);
         }
 

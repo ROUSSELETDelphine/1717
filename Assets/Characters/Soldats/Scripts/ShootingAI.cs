@@ -12,6 +12,7 @@ public class ShootingAI : MonoBehaviour {
     private float checkRate;
     private float nextCheck;
     public LayerMask detectionLayer;
+    private Health health;
 
     private float distanceToPlayer;
     public float detectionRadius = 5; 
@@ -22,12 +23,16 @@ public class ShootingAI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        health = gameObject.GetComponent<Health>();
         SetInitialReferences();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        CheckIfPlayerInRange();
+        if (!health.dead)
+        {
+            CheckIfPlayerInRange();
+        }
 	}
 
     void LookAtPlayer()

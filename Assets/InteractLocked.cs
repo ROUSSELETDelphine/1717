@@ -7,6 +7,8 @@ public class InteractLocked : MonoBehaviour
     public AudioSource source;
     public GameObject Pivot, Porte;
     public GameObject player;
+    public float amountEuphoria;
+    private MentalHealthManager health;
     private MyInventory inventory;
     public int Angle = 130;
     private int CurAngle;
@@ -17,6 +19,7 @@ public class InteractLocked : MonoBehaviour
     void Start()
     {
         inventory = player.GetComponent<MyInventory>();
+        health = player.GetComponent<MentalHealthManager>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,9 +57,10 @@ public class InteractLocked : MonoBehaviour
                 CurAngle += 1;
                 Porte.transform.RotateAround(Pivot.transform.position, -Vector3.up, CurAngle * Time.deltaTime);
             }
-            else
+            else if (!Ouverture) 
             {
                 Ouverture = true;
+                health.changeMentalState(amountEuphoria);
             }
         }
     }

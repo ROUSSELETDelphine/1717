@@ -5,11 +5,13 @@ using UnityEngine;
 public class ShowWeapon : MonoBehaviour {
 
     public GameObject[] weapons;
+    public Controller playerController;
     public bool showWeapons;
 
 	// Use this for initialization
 	void Start () {
         showWeapons = false;
+        playerController = GetComponent<Controller>();
 	}
 	
 	// Update is called once per frame
@@ -36,7 +38,7 @@ public class ShowWeapon : MonoBehaviour {
            showWeapons = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) && playerController.weaponEquiped)
         {
             showWeapons = true;
         }

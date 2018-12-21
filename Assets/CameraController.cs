@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     // Utilisez du Caching ! Optimisation !!
     private Transform myTransform;
 
-    public GameObject mainCharacter;
+    public Controller playerController;
     public Transform[] views;
 
     // public float transitionSpeed;
@@ -38,7 +38,9 @@ public class CameraController : MonoBehaviour
     public float speedH = 2.0f;
     private float yaw = 0.0f;
 
-
+    private void Start()
+    {
+    }
 
     void Awake()
     {
@@ -70,7 +72,7 @@ public class CameraController : MonoBehaviour
             stopUpdate = true;
             MoveCameraToView(views[0]);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && playerController.weaponEquiped)
         {
             stopUpdate = true;
             MoveCameraToView(views[1]);

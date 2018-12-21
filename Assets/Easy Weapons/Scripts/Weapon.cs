@@ -208,14 +208,23 @@ public class Weapon : MonoBehaviour
 	// Other
 	private bool canFire = true;						// Whether or not the weapon can currently fire (used for semi-auto weapons)
 
+    private float headShotCoeff;
+    private MentalHealthManager mentalHealth;
+    private float headshotEuphoria;
+
 
 	// Use this for initialization
 	void Start()
 	{
-		// Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
-		// designed to make it easier on the user - it represents the number of rounds to be fired
-		// per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
-		if (rateOfFire != 0)
+        headShotCoeff = 3;
+        mentalHealth = GameObject.Find("MOD22-1717@Idle").GetComponent<MentalHealthManager>();
+        headshotEuphoria = 20;
+
+
+        // Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
+        // designed to make it easier on the user - it represents the number of rounds to be fired
+        // per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
+        if (rateOfFire != 0)
 			actualROF = 1.0f / rateOfFire;
 		else
 			actualROF = 0.01f;
@@ -640,9 +649,18 @@ public class Weapon : MonoBehaviour
 					damage *= heat * powerMultiplier;
 					heat = 0.0f;
 				}
-				
-				// Damage
-				hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+
+                // Damage
+                if (hit.collider is SphereCollider)
+                {
+                    hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage * headShotCoeff, SendMessageOptions.DontRequireReceiver);
+                    if (playerWeapon)
+                    {
+                        mentalHealth.changeMentalState(headshotEuphoria);
+                    }
+                }
+                if (hit.collider is CapsuleCollider) hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
+                //hit.collider.gameObject.SendMessageUpwards("ChangeHealth", -damage, SendMessageOptions.DontRequireReceiver);
 
                 // If an enemy is hurt
                 if (hit.collider.gameObject.tag == "Enemy")

@@ -23,7 +23,7 @@ public class SpawnerScript : MonoBehaviour {
         for (int i = 0; i < numberOfEnemies; i++)
         {
             spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
-            Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            Instantiate(objectToSpawn, spawnPosition, Quaternion.identity, transform);
         }
     }
 }

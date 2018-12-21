@@ -25,7 +25,10 @@ public class Health : MonoBehaviour
 	public bool isPlayer = false;				// Whether or not this health is the player
 	public GameObject deathCam;					// The camera to activate when the player dies
 
-	private bool dead = false;					// Used to make sure the Die() function isn't called twice
+	public bool dead = false;					// Used to make sure the Die() function isn't called twice
+
+    public float coeff;
+    private MentalHealthManager mentalHealth;
 
 	// Use this for initialization
 	void Start()
@@ -36,26 +39,33 @@ public class Health : MonoBehaviour
 
 	public void ChangeHealth(float amount)
 	{
-        /*
-        print("current health :\n");
-        print(currentHealth);
-        print("amount:");
-        print(amount);
-        */
-		// Change the health by the amount specified in the amount variable
-		currentHealth += amount;
 
-		// If the health runs out, then Die.
-		if (currentHealth <= 0 && !dead && canDie)
-			Die();
+        if (gameObject.tag == "Enemy")
+        {
+            // Change the health by the amount specified in the amount variable
+            currentHealth += amount;
 
-		// Make sure that the health never exceeds the maximum health
-		else if (currentHealth > maxHealth)
-			currentHealth = maxHealth;
+            // If the health runs out, then Die.
+            if (currentHealth <= 0 && !dead && canDie)
+                Die();
+
+            // Make sure that the health never exceeds the maximum health
+            else if (currentHealth > maxHealth)
+                currentHealth = maxHealth;
+        } else
+        {
+            mentalHealth = gameObject.GetComponent<MentalHealthManager>();
+            if (mentalHealth != null)
+            {
+                mentalHealth.changeMentalState(coeff * amount);
+            }
+        }
+		
 	}
 
 	public void Die()
 	{
+        print("fdp à terre");
 		// This GameObject is officially dead.  This is used to make sure the Die() function isn't called again
 		dead = true;
 

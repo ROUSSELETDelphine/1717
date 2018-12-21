@@ -7,8 +7,8 @@ public class MentalHealthManager : MonoBehaviour {
 
     private Controller controller;               // Player controller script
     private GlitchHandler glitchHandler;        // Script that makes appear glitch on screen
-    public int startingMentalHealth = 0;        // Mental health at the beginning of the level
-    public int currentMentalState;             // Current mental health state
+    public float startingMentalHealth = 0.0f;        // Mental health at the beginning of the level
+    public float currentMentalState;             // Current mental health state
     private bool isDead = false;                // Indicates whether the player is dead or not
 
 
@@ -26,7 +26,7 @@ public class MentalHealthManager : MonoBehaviour {
         }*/
 	}
 
-    public void changeMentalState(int amount)
+    public void changeMentalState(float amount)
     {
         currentMentalState += amount;
 
@@ -62,19 +62,19 @@ public class MentalHealthManager : MonoBehaviour {
         } else if (20 <= currentMentalState && currentMentalState < 50)
         {
             // First symptoms of Euphoria
-            controller.speed = 2.0f;
+            controller.speed = 1.5f;
             glitchHandler.regularScreen();
 
         } else if (50 <= currentMentalState && currentMentalState < 90)
         {
             // Worrying state of Euphoria
-            controller.speed = 5.0f;
+            controller.speed = 2f;
             glitchHandler.regularScreen();
 
         } else
         {
             // Critical state of Euphoria
-            controller.speed = 10.0f;
+            controller.speed = 2.5f;
             glitchHandler.regularScreen();
 
         } 

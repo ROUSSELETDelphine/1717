@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class CodeClass : MonoBehaviour
 {
+    public float amountEuphoria;
     public AudioSource source;
     public AudioClip bipError, bipUnlocked;
     public List<int> Entry = new List<int>();
     public bool isValid = false;
     public GameObject led, bookshelf;
+    public MentalHealthManager health;
     private Renderer ledRenderer;
     private List<int> code = new List<int>() { 1,9,1,0 };
     private bool ver = false;
@@ -35,6 +37,8 @@ public class CodeClass : MonoBehaviour
        if(!isValid && verif(Entry))
         {
             isValid = true;
+            health.changeMentalState(amountEuphoria);
+            //player.SendMessageUpwards("changeMentalState", amountEuphoria, SendMessageOptions.DontRequireReceiver);
         } 
 
        if (!isValid && error && (wait != waitingTime))
@@ -52,7 +56,7 @@ public class CodeClass : MonoBehaviour
        if (isValid && ctr != iterMax)
         {
             ctr++;
-            Debug.Log(ctr);
+            //Debug.Log(ctr);
             bookshelf.transform.Translate(0, 0, speed);
         }
 
@@ -65,14 +69,12 @@ public class CodeClass : MonoBehaviour
         {
             ledRenderer.material.color = green;
             ver = true;
-            Debug.Log("UNLOCKED");
             source.PlayOneShot(bipUnlocked);
         }
 
         if(entry.Count == 4 && (entry[0] != code[0] || entry[1] != code[1] || entry[2] != code[2] || entry[3] != code[3]))
         {
             ledRenderer.material.color = brightRed;
-            Debug.Log("ERROR");
             error = true;
             Entry.Clear();
             source.PlayOneShot(bipError);
