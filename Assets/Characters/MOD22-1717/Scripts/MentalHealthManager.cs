@@ -83,6 +83,6 @@ public class MentalHealthManager : MonoBehaviour {
     void gameOver()
     {
         print("You woke up because of the strong emotions starting to overwhelm you.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(2);
     }
 }

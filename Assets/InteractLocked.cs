@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Interact : MonoBehaviour
+public class InteractLocked : MonoBehaviour
 {
     public AudioSource source;
     public GameObject Pivot, Porte;
+    public GameObject player;
+    private MyInventory inventory;
     public int Angle = 130;
     private int CurAngle;
-    public bool Ouverture = false;
+    private bool Ouverture = false;
     private bool keyE = false;
-    public GameObject interaction_text;
-    
-    // Use this for initialization
+    public GameObject open_text, locked_text;
+
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        inventory = player.GetComponent<MyInventory>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Team2") && !Ouverture)
         {
-            if (interaction_text != null)
+            if (open_text != null)
             {
-                interaction_text.SetActive(true);
+                open_text.SetActive(true);
             }
         }
     }
@@ -37,11 +34,16 @@ public class Interact : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Team2"))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && inventory.haveCard)
             {
                 source.PlayOneShot(source.clip);
                 keyE = true;
-                interaction_text.SetActive(false);
+                open_text.SetActive(false);
+            }
+            if (Input.GetKeyDown(KeyCode.E) && !inventory.haveCard)
+            {
+                open_text.SetActive(false);
+                locked_text.SetActive(true);
             }
         }
 
@@ -51,7 +53,8 @@ public class Interact : MonoBehaviour
             {
                 CurAngle += 1;
                 Porte.transform.RotateAround(Pivot.transform.position, -Vector3.up, CurAngle * Time.deltaTime);
-            } else
+            }
+            else
             {
                 Ouverture = true;
             }
@@ -62,9 +65,10 @@ public class Interact : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Team2"))
         {
-            if (interaction_text != null)
+            if (open_text != null)
             {
-                interaction_text.SetActive(false);
+                open_text.SetActive(false);
+                locked_text.SetActive(false);
             }
         }
     }
